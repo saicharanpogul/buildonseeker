@@ -2,20 +2,33 @@ import { FOOTER_LINKS } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border-card bg-bg-primary py-12">
+    <footer className="border-t border-border-card py-12">
       <div className="mx-auto max-w-[1200px] px-6 md:px-12">
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-          <div className="flex flex-col items-center gap-2 sm:items-start">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+          <div className="space-y-3">
+            <p className="font-heading text-sm font-semibold text-text-primary">
+              buildonseeker.com
+            </p>
             <p className="text-sm text-text-secondary">
               Built by{" "}
               <a
                 href={FOOTER_LINKS.author.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-primary underline-offset-4 hover:underline"
+                className="text-text-primary hover:underline"
               >
                 {FOOTER_LINKS.author.name}
               </a>
+              {" · "}
+              <a
+                href={FOOTER_LINKS.author.superteam}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-purple hover:underline"
+              >
+                SuperteamIN
+              </a>
+              {" Member"}
             </p>
             <p className="text-sm text-text-secondary">
               Powered by{" "}
@@ -23,14 +36,14 @@ export function Footer() {
                 href={FOOTER_LINKS.sdk.npm}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent-purple underline-offset-4 hover:underline"
+                className="text-accent-green hover:underline"
               >
                 {FOOTER_LINKS.sdk.name}
               </a>
             </p>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap gap-x-8 gap-y-2">
             <a
               href={FOOTER_LINKS.solanaMobile.site}
               target="_blank"
@@ -66,7 +79,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border-card pt-6 text-center">
+        <div className="mt-8 pt-6">
           <p className="text-xs text-text-muted">
             Not affiliated with Solana Mobile, Inc. This is an unofficial community project.
           </p>

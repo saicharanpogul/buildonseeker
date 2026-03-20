@@ -2,11 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { HARDCODED_STATS } from "@/lib/constants";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { StatCard } from "@/components/ui/StatCard";
 import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { GradientGlow } from "@/components/ui/GradientGlow";
 import { truncateAddress } from "@/lib/utils";
 
 interface LiveStatsData {
@@ -33,147 +30,146 @@ export function LiveStats() {
         setIsLive(false);
       }
     }
-
     fetchStats();
   }, []);
 
+  const skrPrice = HARDCODED_STATS.skrPrice;
+  const tvlUsd = liveData
+    ? liveData.totalValueLocked * skrPrice
+    : 25_000_000;
+
   return (
-    <SectionWrapper id="live-stats" className="relative py-24 lg:py-32">
-      <GradientGlow
-        color="green"
-        size="lg"
-        className="-right-32 top-1/2 -translate-y-1/2"
-      />
-
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-12">
-        <SectionHeading
-          title="Live Ecosystem Stats"
-          subtitle="Real numbers from the Seeker ecosystem. On-chain data powered by seeker-sdk."
-          gradient
-        />
-
-        <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard
-            label="Devices Shipped"
-            value={
-              <AnimatedNumber
-                target={HARDCODED_STATS.devicesShipped}
-                suffix="+"
-              />
-            }
-          />
-          <StatCard
-            label="Power Users"
-            value={
-              <AnimatedNumber
-                target={HARDCODED_STATS.powerUsers}
-                suffix="+"
-              />
-            }
-          />
-          <StatCard
-            label="dApps in Store"
-            value={
-              <AnimatedNumber
-                target={HARDCODED_STATS.dappsInStore}
-                suffix="+"
-              />
-            }
-          />
-          <StatCard
-            label="Weekly Active Wallets"
-            value={
-              <AnimatedNumber
-                target={HARDCODED_STATS.weeklyActiveWallets}
-                suffix="+"
-              />
-            }
-          />
+    <SectionWrapper id="live-stats" className="py-24 lg:py-32">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-12">
+        <div className="mb-16 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent-green">
+              Ecosystem
+            </p>
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl">
+              Real numbers, on-chain proof
+            </h2>
+            <p className="mt-4 text-lg text-text-secondary">
+              Live data from Solana mainnet via{" "}
+              <a
+                href="https://github.com/saicharanpogul/seeker-sdk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-green hover:underline"
+              >
+                seeker-sdk
+              </a>
+            </p>
+          </div>
+          {isLive && (
+            <div className="flex items-center gap-2 text-sm text-accent-green">
+              <span className="live-dot" />
+              Live from Solana
+            </div>
+          )}
         </div>
 
-        {liveData ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <StatCard
-              label="Total SKR Staked (TVL)"
-              value={
-                <AnimatedNumber
-                  target={liveData.totalValueLocked}
-                  formatter={(val) =>
-                    new Intl.NumberFormat("en-US", {
-                      maximumFractionDigits: 0,
-                    }).format(val)
-                  }
-                />
-              }
-              suffix="SKR"
-              live={isLive}
-            />
-            <StatCard
-              label="Share Price"
-              value={
-                <AnimatedNumber
-                  target={liveData.sharePriceMultiplier}
-                  decimals={3}
-                  suffix="x"
-                />
-              }
-              live={isLive}
-            />
-            <StatCard
-              label="Guardians"
-              value={
+        {/* Hero stats row — the big bullish numbers */}
+        <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="stat-card p-6">
+            <p className="text-sm font-medium text-text-secondary">Total Value Locked</p>
+            <p className="mt-2 font-heading text-3xl font-bold text-text-primary lg:text-4xl">
+              $<AnimatedNumber target={tvlUsd / 1_000_000} decimals={1} suffix="M" />
+            </p>
+            <p className="mt-1 text-xs text-text-muted">
+              {liveData ? (
+                <><AnimatedNumber target={liveData.totalValueLocked} formatter={(v) => new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(v)} /> SKR staked</>
+              ) : (
+                "4.3B+ SKR staked"
+              )}
+            </p>
+          </div>
+
+          <div className="stat-card p-6">
+            <p className="text-sm font-medium text-text-secondary">Devices Shipped</p>
+            <p className="mt-2 font-heading text-3xl font-bold text-text-primary lg:text-4xl">
+              <AnimatedNumber target={HARDCODED_STATS.devicesShipped} suffix="+" />
+            </p>
+            <p className="mt-1 text-xs text-text-muted">Seeker devices worldwide</p>
+          </div>
+
+          <div className="stat-card p-6">
+            <p className="text-sm font-medium text-text-secondary">Active Users</p>
+            <p className="mt-2 font-heading text-3xl font-bold text-text-primary lg:text-4xl">
+              <AnimatedNumber target={HARDCODED_STATS.powerUsers} suffix="+" />
+            </p>
+            <p className="mt-1 text-xs text-text-muted">Crypto-native power users</p>
+          </div>
+
+          <div className="stat-card p-6">
+            <p className="text-sm font-medium text-text-secondary">Platform Fees</p>
+            <p className="mt-2 font-heading text-3xl font-bold text-accent-green lg:text-4xl">
+              0%
+            </p>
+            <p className="mt-1 text-xs text-text-muted">Developers keep everything</p>
+          </div>
+        </div>
+
+        {/* On-chain live stats */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="stat-card p-5">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-text-muted">Share Price</p>
+              {isLive && <span className="live-dot" />}
+            </div>
+            <p className="mt-2 font-heading text-2xl font-bold text-text-primary">
+              {liveData ? (
+                <AnimatedNumber target={liveData.sharePriceMultiplier} decimals={3} suffix="x" />
+              ) : (
+                "—"
+              )}
+            </p>
+          </div>
+
+          <div className="stat-card p-5">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-text-muted">Active Guardians</p>
+              {isLive && <span className="live-dot" />}
+            </div>
+            <p className="mt-2 font-heading text-2xl font-bold text-text-primary">
+              {liveData ? (
                 <AnimatedNumber target={liveData.guardianCount} />
-              }
-              live={isLive}
-            />
-            <StatCard
-              label="Min Stake"
-              value={
-                <AnimatedNumber
-                  target={liveData.minStakeAmount}
-                  formatter={(val) =>
-                    new Intl.NumberFormat("en-US", {
-                      maximumFractionDigits: 0,
-                    }).format(val)
-                  }
-                />
-              }
-              suffix="SKR"
-              live={isLive}
-            />
-            <StatCard
-              label="Vault Address"
-              value={
+              ) : (
+                "—"
+              )}
+            </p>
+          </div>
+
+          <div className="stat-card p-5">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-text-muted">Weekly Active Wallets</p>
+            </div>
+            <p className="mt-2 font-heading text-2xl font-bold text-text-primary">
+              <AnimatedNumber target={HARDCODED_STATS.weeklyActiveWallets} suffix="+" />
+            </p>
+          </div>
+
+          <div className="stat-card p-5">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-text-muted">Vault</p>
+              {isLive && <span className="live-dot" />}
+            </div>
+            <p className="mt-2 font-mono text-sm text-accent-cyan">
+              {liveData ? (
                 <a
                   href={`https://solscan.io/account/${liveData.vaultAddress}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent-cyan underline-offset-4 hover:underline"
+                  className="hover:underline"
                 >
                   {truncateAddress(liveData.vaultAddress, 6)}
                 </a>
-              }
-              live={isLive}
-            />
-          </div>
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <StatCard
-              label="Total SKR Staked"
-              value={HARDCODED_STATS.skrStaked}
-              suffix="+"
-            />
-            <p className="col-span-full text-center text-sm text-text-muted">
-              Live on-chain stats loading...
+              ) : (
+                "—"
+              )}
             </p>
           </div>
-        )}
-
-        {!isLive && liveData === null && (
-          <p className="mt-4 text-center text-xs text-text-muted">
-            (cached data — live stats temporarily unavailable)
-          </p>
-        )}
+        </div>
       </div>
     </SectionWrapper>
   );

@@ -8,60 +8,85 @@ export const SITE_CONFIG = {
 export const HERO_CONTENT = {
   headline: "Build on Seeker",
   subheadline:
-    "100,000+ crypto-native users. Zero app store fees. Ship your dApp where the users already are.",
+    "150,000+ crypto-native users. Zero app store fees. Hardware wallet security built in. Ship your dApp where the users already are.",
   ctaPrimary: { label: "Start Building", href: "#get-started" },
-  ctaSecondary: { label: "View Ecosystem Stats", href: "#live-stats" },
+  ctaSecondary: { label: "Explore Ecosystem", href: "#live-stats" },
 };
 
 export const WHY_SEEKER_CARDS = [
   {
     icon: "distribution",
     heading: "Built-in Distribution",
-    body: "100k+ power users already exploring the Solana dApp Store. dApps that launch on Seeker see their first 10-20k users in weeks. No cold start. Users are actively looking for new apps.",
+    body: "150k+ power users already exploring the Solana dApp Store. dApps that launch on Seeker see their first 10-20k users in weeks. No cold start.",
   },
   {
     icon: "zero-fees",
-    heading: "Zero Fees",
-    body: "No 30% app store tax. Developers keep what they earn. No gatekeeping on crypto features. SKR-powered economy means direct developer-to-user value flow.",
+    heading: "Zero Platform Fees",
+    body: "No 30% app store tax. Developers keep 100% of what they earn. No gatekeeping on crypto features. Direct developer-to-user value flow.",
   },
   {
     icon: "hardware-security",
-    heading: "Hardware Security",
-    body: "Seed Vault provides hardware-level key custody. Users sign transactions with fingerprint + double-tap. Your app doesn't need to solve wallet UX. It's handled at the OS level.",
+    heading: "Hardware-Level Security",
+    body: "Seed Vault provides hardware-level key custody. Users sign transactions with fingerprint + double-tap. Wallet UX handled at the OS level.",
   },
   {
     icon: "anti-sybil",
     heading: "Anti-Sybil by Default",
-    body: "Every Seeker device mints one Seeker Genesis Token (SGT). Verified, unique device ownership on-chain. Gate features, airdrops, rewards to real users, not bots.",
+    body: "Every Seeker device mints one Seeker Genesis Token (SGT). Verified, unique device ownership on-chain. Gate rewards to real users, not bots.",
   },
   {
     icon: "skr-token",
     heading: "SKR Token Economy",
-    body: "Use SKR for payments, incentives, access control. 4.3B+ SKR staked by the community. Built-in token with real holders. No need to launch your own.",
+    body: "4.3B+ SKR staked. Use SKR for payments, incentives, access control. Built-in token with real holders — no need to launch your own.",
   },
   {
     icon: "grants",
     heading: "Active Grants Program",
-    body: "Solana Mobile Builder Grants are live right now. Funding + technical guidance + marketing support for dApp Store launches. RFPs for specific developer tooling gaps.",
+    body: "Solana Mobile Builder Grants are live. Funding + technical guidance + marketing support for dApp Store launches.",
   },
 ] as const;
 
 export const HARDCODED_STATS = {
   devicesShipped: 200_000,
-  powerUsers: 100_000,
+  powerUsers: 150_000,
   dappsInStore: 100,
   weeklyActiveWallets: 85_000,
   skrStaked: "4.3B",
+  skrPrice: 0.0058,
+  platformFees: 0,
 };
+
+export const ECOSYSTEM_HIGHLIGHTS = [
+  {
+    value: "200K+",
+    label: "Devices Shipped",
+    detail: "Seeker devices in the hands of users worldwide",
+  },
+  {
+    value: "150K+",
+    label: "Active Users",
+    detail: "Crypto-native users actively exploring dApps",
+  },
+  {
+    value: "$25M+",
+    label: "TVL in SKR Staking",
+    detail: "4.3B+ SKR tokens locked in staking",
+  },
+  {
+    value: "0%",
+    label: "Platform Fees",
+    detail: "No app store tax — developers keep everything",
+  },
+];
 
 export const STAT_LABELS = {
   devicesShipped: "Devices Shipped",
-  powerUsers: "Power Users",
+  powerUsers: "Active Users",
   dappsInStore: "dApps in Store",
   weeklyActiveWallets: "Weekly Active Wallets",
-  totalValueLocked: "Total SKR Staked (TVL)",
+  totalValueLocked: "Total SKR Staked",
   sharePriceMultiplier: "Share Price",
-  guardianCount: "Guardians",
+  guardianCount: "Active Guardians",
   minStakeAmount: "Min Stake",
   vaultAddress: "Vault Address",
 };
@@ -270,7 +295,7 @@ export const GET_STARTED_STEPS: GetStartedStep[] = [
     step: 3,
     heading: "Ship to the dApp Store",
     description:
-      "Publish your app where 100k+ users are waiting. Zero fees, direct distribution.",
+      "Publish your app where 150k+ users are waiting. Zero fees, direct distribution.",
     link: {
       label: "Publishing Guide",
       url: "https://docs.solanamobile.com/dapp-store/intro",
@@ -283,6 +308,7 @@ export const FOOTER_LINKS = {
     name: "Saicharan",
     github: "https://github.com/saicharanpogul",
     twitter: "https://twitter.com/saicharanpogul",
+    superteam: "https://superteam.fun",
   },
   sdk: {
     name: "seeker-sdk",

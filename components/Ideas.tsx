@@ -150,7 +150,7 @@ export function Ideas() {
                 If it's good, we'll add it to the board. Submit your pitch to the community discussion.
               </p>
               <a
-                href="https://github.com/saicharanpogul/buildonseeker/discussions/new?category=ideas"
+                href="https://github.com/saicharanpogul/buildonseeker/discussions/new?category=ideas&title=%5BIdea%5D%3A+&body=**Idea+Name**%3A%20%0A%0A**One-line+pitch**%3A%20%0A%0A**Why+Seeker%3F**%3A%20%0A%0A**Your+Twitter%2F.skr**%3A%20"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-heading text-sm font-semibold text-black transition-all hover:bg-white/90"

@@ -27,6 +27,17 @@ export const metadata: Metadata = {
   description:
     "100,000+ users, zero app store fees, hardware wallet security. Everything developers need to build on Solana Seeker: live ecosystem stats, SDKs, grants, and resources.",
   metadataBase: new URL("https://buildonseeker.com"),
+  applicationName: "Build on Seeker",
+  authors: [{ name: "Saicharan", url: "https://github.com/saicharanpogul" }],
+  generator: "Next.js",
+  keywords: ["Solana", "Seeker", "Solana Mobile", "Saga", "dApp Store", "Web3 Mobile", "Crypto"],
+  creator: "SuperteamIN",
+  publisher: "SuperteamIN",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     title: "Build on Seeker | The Developer Hub for Solana Mobile",
     description:

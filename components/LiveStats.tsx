@@ -111,7 +111,16 @@ export function LiveStats() {
         </div>
 
         {/* On-chain live stats */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="stat-card p-5">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium text-text-muted">Staking APY</p>
+            </div>
+            <p className="mt-2 font-heading text-2xl font-bold text-accent-green">
+              <AnimatedNumber target={HARDCODED_STATS.skrApy} decimals={1} suffix="%" />
+            </p>
+          </div>
+
           <div className="stat-card p-5">
             <div className="flex items-center justify-between">
               <p className="text-xs font-medium text-text-muted">Share Price</p>

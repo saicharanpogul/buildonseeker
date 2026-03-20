@@ -53,6 +53,7 @@ export const HARDCODED_STATS = {
   weeklyActiveWallets: 85_000,
   skrStaked: "4.3B",
   skrPrice: 0.0058,
+  skrApy: 19.7,
   platformFees: 0,
 };
 

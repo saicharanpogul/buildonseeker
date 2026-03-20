@@ -3,6 +3,23 @@ import { HERO_CONTENT, ECOSYSTEM_HIGHLIGHTS } from "@/lib/constants";
 export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center hero-bg overflow-hidden">
+      {/* Top right CTA */}
+      <div className="absolute top-6 right-6 md:top-8 md:right-12 z-50">
+        <button
+          disabled
+          className="inline-flex items-center gap-2 rounded-xl border border-border-card bg-bg-card/40 backdrop-blur-md px-5 py-2.5 font-heading text-sm font-medium text-text-muted transition-all cursor-not-allowed opacity-80"
+          aria-disabled="true"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Get Ideas
+          <span className="ml-1 text-[10px] uppercase tracking-wider text-text-secondary/50">
+            (Coming Soon)
+          </span>
+        </button>
+      </div>
+
       <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 md:px-12 pt-24 pb-20">
         <div className="max-w-3xl">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border-card bg-bg-card px-4 py-1.5 text-sm text-text-secondary">

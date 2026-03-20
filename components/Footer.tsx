@@ -12,23 +12,13 @@ export function Footer() {
             <p className="text-sm text-text-secondary">
               Built by{" "}
               <a
-                href={FOOTER_LINKS.author.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-text-primary hover:underline"
-              >
-                {FOOTER_LINKS.author.name}
-              </a>
-              {" · "}
-              <a
                 href={FOOTER_LINKS.author.superteam}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-purple hover:underline"
               >
-                SuperteamIN
+                SuperteamIN Member
               </a>
-              {" Member"}
             </p>
             <p className="text-sm text-text-secondary">
               Powered by{" "}

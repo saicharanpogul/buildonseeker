@@ -308,7 +308,7 @@ export const FOOTER_LINKS = {
     name: "Saicharan",
     github: "https://github.com/saicharanpogul",
     twitter: "https://twitter.com/saicharanpogul",
-    superteam: "https://superteam.fun",
+    superteam: "https://x.com/pogul_saicharan",
   },
   sdk: {
     name: "seeker-sdk",

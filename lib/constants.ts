@@ -233,7 +233,16 @@ export const SEEKER_STACK_LAYERS = [
   },
 ] as const;
 
-export const GET_STARTED_STEPS = [
+interface GetStartedStep {
+  step: number;
+  heading: string;
+  description: string;
+  link: { label: string; url: string };
+  code?: string;
+  skillInstall?: string;
+}
+
+export const GET_STARTED_STEPS: GetStartedStep[] = [
   {
     step: 1,
     heading: "Set Up Your Environment",
@@ -267,7 +276,7 @@ export const GET_STARTED_STEPS = [
       url: "https://docs.solanamobile.com/dapp-store/intro",
     },
   },
-] as const;
+];
 
 export const FOOTER_LINKS = {
   author: {

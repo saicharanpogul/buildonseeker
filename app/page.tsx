@@ -1,11 +1,23 @@
+import { Hero } from "@/components/Hero";
+import { WhySeeker } from "@/components/WhySeeker";
+import { LiveStats } from "@/components/LiveStats";
+import { Resources } from "@/components/Resources";
+import { Grants } from "@/components/Grants";
+import { SeekerStack } from "@/components/SeekerStack";
+import { GetStarted } from "@/components/GetStarted";
+import { Footer } from "@/components/Footer";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
-      <div className="flex flex-1 items-center justify-center">
-        <h1 className="font-heading text-4xl font-bold gradient-text">
-          Build on Seeker
-        </h1>
-      </div>
+    <main>
+      <Hero />
+      <WhySeeker />
+      <LiveStats />
+      <Resources />
+      <Grants />
+      <SeekerStack />
+      <GetStarted />
+      <Footer />
     </main>
   );
 }

@@ -281,16 +281,14 @@ export const GET_STARTED_STEPS: GetStartedStep[] = [
   },
   {
     step: 2,
-    heading: "Install seeker-sdk",
+    heading: "Install AI Dev Skill",
     description:
-      "Get the TypeScript SDK for SGT verification, .skr domains, SKR queries, and staking instructions.",
+      "Get the Seeker Dev Skill for your AI coding agent (Claude/Cursor) to instantly generate Solana Mobile integrations.",
     link: {
-      label: "View on GitHub",
-      url: "https://github.com/saicharanpogul/seeker-sdk",
+      label: "View Skill Source",
+      url: "https://buildonseeker.com/skill.md",
     },
-    code: "npm install seeker-sdk @solana/web3.js",
-    skillInstall:
-      "curl -o .claude/skills/seeker.md https://buildonseeker.com/skill.md",
+    code: "curl https://buildonseeker.com/skill.md",
   },
   {
     step: 3,

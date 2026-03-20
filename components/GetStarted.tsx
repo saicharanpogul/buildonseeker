@@ -29,18 +29,8 @@ export function GetStarted() {
               </p>
 
               {step.code && (
-                <div className="mt-4 space-y-3">
+                <div className="mt-4">
                   <CodeBlock code={step.code} />
-                  <QuickSnippet />
-                </div>
-              )}
-
-              {step.skillInstall && (
-                <div className="mt-3">
-                  <p className="mb-1.5 text-[11px] font-medium uppercase tracking-wider text-text-muted">
-                    AI coding agent skill
-                  </p>
-                  <CodeBlock code={step.skillInstall} />
                 </div>
               )}
 
@@ -48,7 +38,7 @@ export function GetStarted() {
                 href={step.link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent-purple hover:underline"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent-purple hover:underline"
               >
                 {step.link.label}
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -60,26 +50,5 @@ export function GetStarted() {
         </div>
       </div>
     </SectionWrapper>
-  );
-}
-
-function QuickSnippet() {
-  return (
-    <div className="overflow-x-auto rounded-lg border border-border-card bg-black/40 p-3">
-      <pre className="font-mono text-xs leading-relaxed">
-        <code>
-          <span className="text-accent-purple">import</span>
-          <span className="text-text-secondary">{" { isSeeker } "}</span>
-          <span className="text-accent-purple">from</span>
-          <span className="text-accent-green">{' "seeker-sdk"'}</span>
-          <span className="text-text-muted">;</span>
-          {"\n\n"}
-          <span className="text-accent-purple">const</span>
-          <span className="text-text-secondary"> verified = </span>
-          <span className="text-accent-purple">await</span>
-          <span className="text-text-secondary"> isSeeker(connection, wallet);</span>
-        </code>
-      </pre>
-    </div>
   );
 }

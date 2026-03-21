@@ -150,7 +150,7 @@ export const RESOURCES = {
       description: "Developer community",
     },
     {
-      name: "Twitter",
+      name: "X",
       url: "https://twitter.com/solanamobile",
       description: "Official updates",
     },

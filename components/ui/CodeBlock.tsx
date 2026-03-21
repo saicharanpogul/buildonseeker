@@ -31,7 +31,7 @@ export function CodeBlock({
         className
       )}
     >
-      <pre className="font-mono text-sm leading-relaxed whitespace-pre-wrap break-words">
+      <pre className="font-mono text-sm leading-relaxed whitespace-pre-wrap break-all">
         <code className="text-text-primary">
           {showPrompt && language === "bash" && (
             <span className="select-none text-accent-green">$ </span>
